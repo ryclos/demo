@@ -1,19 +1,17 @@
 package com.example.demo.etudiants;
 
-@Enti
+import javax.persistence.*;
+
+@Entity
 public class EtudiantEntity {
 
     @Id
-    public Long id;
-    public String name;
+    private Long id;
+    private String name;
 
     public EtudiantEntity(Long id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    public EtudiantEntity() {
-
     }
 
     public Long getId() {
@@ -30,5 +28,13 @@ public class EtudiantEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "EtudiantEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
