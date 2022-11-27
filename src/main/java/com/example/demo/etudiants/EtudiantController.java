@@ -3,6 +3,8 @@ package com.example.demo.etudiants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path = "etudiant")
 public class EtudiantController {
@@ -15,7 +17,7 @@ public class EtudiantController {
     }
 
     @GetMapping(path = "{id}")
-    public EtudiantEntity getEtudiantService(
+    public Optional<EtudiantEntity> getEtudiant(
             @PathVariable("id") Long id
     ) {
         return this.etudiantService.getEtudiant(id);

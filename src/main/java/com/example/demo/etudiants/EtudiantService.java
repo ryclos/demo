@@ -3,6 +3,8 @@ package com.example.demo.etudiants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class EtudiantService {
 
@@ -13,8 +15,8 @@ public class EtudiantService {
         this.etudiantRepository = etudiantRepository;
     }
 
-    public EtudiantEntity getEtudiant(Long id){
-        return this.etudiantRepository.getReferenceById(id);
+    public Optional<EtudiantEntity> getEtudiant(Long id){
+        return this.etudiantRepository.findById(id);
     }
 
     public EtudiantEntity addEtudiant(EtudiantEntity etudiant) {

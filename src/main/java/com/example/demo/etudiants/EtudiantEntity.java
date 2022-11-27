@@ -8,10 +8,18 @@ import jakarta.persistence.*;
 public class EtudiantEntity {
 
     @Id
-    protected Long id;
+    public Long id;
     @Column(name = "name")
-    protected String name;
+    public String name;
 
+    public EtudiantEntity(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public EtudiantEntity() {
+
+    }
 
     public Long getId() {
         return id;
