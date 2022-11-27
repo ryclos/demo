@@ -1,18 +1,17 @@
 package com.example.demo.etudiants;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "etudiant")
 public class EtudiantEntity {
 
     @Id
-    private Long id;
-    private String name;
+    protected Long id;
+    @Column(name = "name")
+    protected String name;
 
-    public EtudiantEntity(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
     public Long getId() {
         return id;
