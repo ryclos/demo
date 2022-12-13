@@ -16,17 +16,26 @@ public class EtudiantController {
         this.etudiantService = etudiantService;
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(path = "{id}")
-    public Optional<EtudiantEntity> getEtudiant(
+    public EtudiantEntity getEtudiant(
             @PathVariable("id") Long id
     ) {
         return this.etudiantService.getEtudiant(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "ajout")
     public EtudiantEntity addEtudiant(
             @RequestBody EtudiantEntity etudiantEntity
     ) {
         return this.etudiantService.addEtudiant(etudiantEntity);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void deleteEtudiantById(
+            @PathVariable("id") Long id
+    ) {
+        this.etudiantService.deleteEtudiant(id);
     }
 }

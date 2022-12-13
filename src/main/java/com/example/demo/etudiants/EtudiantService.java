@@ -15,12 +15,16 @@ public class EtudiantService {
         this.etudiantRepository = etudiantRepository;
     }
 
-    public Optional<EtudiantEntity> getEtudiant(Long id){
-        return this.etudiantRepository.findById(id);
+    public EtudiantEntity getEtudiant(Long id){
+        return this.etudiantRepository.customGetEtudiant(id);
     }
 
     public EtudiantEntity addEtudiant(EtudiantEntity etudiant) {
         this.etudiantRepository.save(etudiant);
         return etudiant;
+    }
+
+    public void deleteEtudiant(Long id) {
+        this.etudiantRepository.deleteById(id);
     }
 }
